@@ -1,5 +1,6 @@
 package dev.danvega.scf17;
 
+import dev.danvega.scf17.handlers.Handler;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -14,7 +15,7 @@ public class Application {
 	}
 
 	@Bean
-	public Function<String,String> reverse() {
-		return (s) -> String.valueOf(new StringBuilder(s).reverse());
+	public Function<String,String> reverse(Handler handler) {
+		return handler::handleLambdaRequest;
 	}
 }
